@@ -59,8 +59,8 @@ class HBNBCommand(cmd.Cmd):
             m_dict = storage.all()
             if key in m_dict:
                 del m_dict[key]
-                del storage._FileStorage__objects[key]
-                storage.save
+                storage.update(m_dict)
+                storage.save()
             else:
                 print("** no instance found **")
 
@@ -112,7 +112,8 @@ class HBNBCommand(cmd.Cmd):
             obj = BaseModel(**m_dict[key])
             setattr(obj, args[2], args[3])
             obj.save()
-            storage._FileStorage.__objects[key] = obj.to_dict()
+            m_dict[key] = obj.to_dict()
+            storage.update(m_dict)
             storage.save()
             return
         print("** no instance found **")

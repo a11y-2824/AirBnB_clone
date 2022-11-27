@@ -31,3 +31,7 @@ class FileStorage:
                 FileStorage.__objects = json.loads(fp.read())
         except Exception:
             pass
+
+    def update(self, data):
+        """ updates __objects with new data """
+        self.__objects = data
