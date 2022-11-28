@@ -21,7 +21,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         else:
             obj = BaseModel()
-            obj.save()
+            storage.save()
             print(obj.id)
 
     def do_show(self, arg):
