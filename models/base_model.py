@@ -24,16 +24,6 @@ class BaseModel():
             self.id = str(uuid.uuid4())
             self.created_at = self.updated_at = datetime.now()
             storage.new(self)
-<<<<<<< HEAD
-    else:
-        for key, value in kwargs.items():
-            if key != '__class__':
-                if key in ('created_at', 'updated_at'):
-                    setattr(self, key, datetime.fromisoformat(value))
-                else:
-                    setattr(self, key, value)
-=======
->>>>>>> refs/remotes/origin/main
 
     def __str__(self):
         """ returns a string representation of the object """
